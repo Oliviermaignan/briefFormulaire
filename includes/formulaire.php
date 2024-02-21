@@ -46,7 +46,7 @@
 
       <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
-      <p class="bouton" onclick="suivant('option')">Suivant</p>
+      <p class="bouton" onclick="displayForm(2)">Suivant</p>
     </fieldset>
     <fieldset id="options">
       <legend>Options</legend>
@@ -86,7 +86,7 @@
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 
-      <p class="bouton" onclick="suivant('coordonnees')">Suivant</p>
+      <p class="bouton" onclick="displayForm(3)">Suivant</p>
     </fieldset>
     <fieldset id="coordonnees">
       <legend>Coordonnées</legend>
