@@ -1,0 +1,7 @@
+fieldset{
+    position: relative;
+    margin: auto;
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 20px;
+}
