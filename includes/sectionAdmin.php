@@ -1,0 +1,2 @@
+<div class="admin-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero praesentium illum, corrupti velit perspiciatis, nobis nihil dolorum assumenda at dignissimos laboriosam distinctio sed, ipsa consectetur pariatur numquam eum officiis illo!
+Animi est, adipisci delectus sequi velit vel temporibus? Magni eligendi provident cumque qui earum culpa repellat excepturi voluptatem consectetur voluptates, ipsum nobis sequi in, odit, doloremque optio? Vitae, accusantium magnam?</div>
