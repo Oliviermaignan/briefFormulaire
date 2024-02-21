@@ -82,7 +82,7 @@
         <p>*Dans la limite des stocks disponibles.</p>
       </section>
 
-      <h3>Profitez de descentes en luge d'été à tarifs avantageux !</h3>
+      <h3>Profitez de descentes en luge d'été à tarifs avantageux ! (5€)</h3>
       <label for="NombreLugesEte">Nombre de descentes en luge d'été :</label>
       <input type="number" name="NombreLugesEte" id="NombreLugesEte">
 

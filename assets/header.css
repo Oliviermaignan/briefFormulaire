@@ -1,0 +1,36 @@
+/* ici le header du css */
+
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: black;
+  height: 100px;
+  margin: 0;
+  position : relative;
+}
+
+.btn1 {
+    position : absolute;
+    right: 80px;
+    margin: 55px 40px 0px 0px;
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+.btn2 {
+  position : absolute;
+  right: 0px;
+  margin: 55px 35px 0px 0px;
+  padding: 5px 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}

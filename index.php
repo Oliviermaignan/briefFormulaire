@@ -6,6 +6,4 @@ include './includes/formulaire.php';
 include './includes/sectionAdmin.php';
 include './includes/footer.php';
 
-echo ('bonjour ça va ????');
-
 ?>
