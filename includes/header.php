@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/header.css">
   <link rel="stylesheet" href="../assets/formulaire.css">
+  <link rel="stylesheet" href="../assets/sectionAdmin.css">
   <script src="../assets/script.js" defer></script>
   <script src="../assets/validation.js" defer></script>
 </head>
@@ -15,6 +16,13 @@
 <body>
 
   <div class="header">
+<<<<<<< HEAD
     <a class="btn1" href="connexion.php">Connexion</a>
     <a class="btn2" href="./includes/sectionAdmin.php">Admin</a>
   </div>
+=======
+    <a class = "btn1" href="connexion.php">Connexion</a>
+    <a class = "btn2" href="./includes/sectionAdmin.php">Admin</a>
+  </div>
+
+>>>>>>> 414d84a05ac9e2a56c22e770c889bf8b027e9eee

@@ -1,2 +1,20 @@
-<div class="admin-container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero praesentium illum, corrupti velit perspiciatis, nobis nihil dolorum assumenda at dignissimos laboriosam distinctio sed, ipsa consectetur pariatur numquam eum officiis illo!
-Animi est, adipisci delectus sequi velit vel temporibus? Magni eligendi provident cumque qui earum culpa repellat excepturi voluptatem consectetur voluptates, ipsum nobis sequi in, odit, doloremque optio? Vitae, accusantium magnam?</div>
+<?php
+
+include '../includes/header.php';
+require '../src/traitement.php';
+
+var_dump($_POST);
+
+?>
+
+<div class="admin-container">
+    <p>Vous êtes connecté en tant qu'administratrice</p>
+    <div>Infos utilisateurs :</div>
+    <div>User1</div>
+    <?php 
+    var_dump($_SERVER);
+    ?>
+    <div><?=User->getFirstName()?></div>
+    <div><?=User->getName()?></div>
+    <div><?=User->getEmail()?></div>
+</div>
