@@ -1,4 +1,4 @@
-<form action="../src/traitement.php" id="inscription" method="POST" onsubmit="return validation()">
+<form action="../src/traitement.php" id="inscription" method="POST" onsubmit="return Validation()">
     <fieldset id="reservation">
       <legend>Réservation</legend>
       <h3>Nombre de réservation(s) :</h3>

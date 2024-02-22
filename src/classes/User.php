@@ -5,24 +5,25 @@ class User {
   private $_nom;
   private $_prenom;
   private $_mail;
-  private $_password;
-  private $_role;
+  private $_phone;
+  private $_adressePost;
 
   /**
    * Création d'un nouvel utilisateur
    * @param string $nom      Le nom de l'utilisateur
    * @param string $prenom   Le prénom de l'utilisateur
    * @param string $mail     Le mail de l'utilisateur
-   * @param string $password Le mot de passe chiffré de l'utilisateur
+   * @param int $phone   Le numéro de tel de l'utilisateur
+   * @param string $adressePost  L'adresse postale de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,string $password,int|string $id = "à créer", $role = "user"){
+  function __construct(string $nom, string $prenom,string $mail, string $phone, string $adressePost, int|string $id = "à créer"){
     $this->setId($id);
     $this->setNom($nom);
     $this->setPrenom($prenom);
     $this->setMail($mail);
-    $this->setPassword($password);
-    $this->setRole($role);
+    $this->setPhone($phone);
+    $this->setAdressePost($adressePost);
   }
 
   public function getId(): int {
@@ -54,27 +55,27 @@ class User {
   public function setMail(string $mail){
     $this->_mail = $mail;
   }
-  public function getPassword(): string {
-    return $this->_password;
+  public function getAdressePost(): string {
+    return $this->_adressePost;
   }
-  public function setPassword(string $password){
-    $this->_password = $password;
-  }
-
-  public function getRole(): string {
-    return $this->_role;
-  }
-  public function setRole(string $role): void {
-    $this->_role = $role;
+  public function setAdressePost(string $adressePost){
+    $this->_adressePost = $adressePost;
   }
 
-  public function isAdmin() {
-    if ($this->getRole() == "admin") {
-      return true;
-    }else {
-      return false;
-    }
+  public function getPhone(): string {
+    return $this->_phone;
   }
+  public function setPhone(string $phone) {
+    $this->_phone = $phone;
+  }
+
+  // public function isAdmin() {
+  //   if ($this->getRole() == "admin") {
+  //     return true;
+  //   }else {
+  //     return false;
+  //   }
+  // }
 
   private function CreerNouvelId(){
     $Database = new Database();
@@ -106,8 +107,8 @@ class User {
       "nom" => $this->getNom(),
       "prenom" => $this->getPrenom(),
       "mail" => $this->getMail(),
-      "password" => $this->getPassword(),
-      "role" => $this->getRole()
+      "adressePost" => $this->getAdressePost(),
+      "phone" => $this->getPhone()
     ];
   }
 }

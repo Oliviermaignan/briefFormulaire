@@ -60,5 +60,4 @@ final class Database
 
         return $retour;
     }
-
 }

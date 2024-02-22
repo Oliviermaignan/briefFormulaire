@@ -163,15 +163,15 @@ class Reservation {
       "nom" => $this->getNom(),
       "prenom" => $this->getPrenom(),
       "mail" => $this->getMail(),
-      "nombreResa" => $this->nombreResa(),
-      "tarifReduit" => $this->tarifReduit(),
-      "formule" => $this->formule(),
-      "emplacementTente" => $this->emplacementTente(),
-      "emplacementVan" => $this->emplacementVan(),
-      "enfant" => $this->enfant(),
-      "casqueAntiBruit" => $this->casqueAntiBruit(),
-      "luge" => $this->luge(),
-      "tarif" => $this->tarif()
+      "nombreResa" => $this->getNombreResa(),
+      "tarifReduit" => $this->getTarifReduit(),
+      "formule" => $this->getFormule(),
+      "emplacementTente" => $this->getEmplacementTente(),
+      "emplacementVan" => $this->getEmplacementVan(),
+      "enfant" => $this->getEnfant(),
+      "casqueAntiBruit" => $this->getCasqueAntiBruit(),
+      "luge" => $this->getLuge(),
+      "tarif" => $this->getTarif()
     ];
   }
 }
