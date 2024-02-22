@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../assets/header.css">
   <link rel="stylesheet" href="../assets/formulaire.css">
   <link rel="stylesheet" href="../assets/sectionAdmin.css">
+  <link rel="stylesheet" href="../assets/sectionRecap.css">
   <script src="../assets/script.js" defer></script>
   <script src="../assets/validation.js" defer></script>
 </head>
