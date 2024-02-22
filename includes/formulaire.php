@@ -88,6 +88,7 @@
 
       <p class="bouton" onclick="displayForm(3)">Suivant</p>
     </fieldset>
+    
     <fieldset id="coordonnees">
       <legend>Coordonnées</legend>
         <label for="nom">Nom :</label>

@@ -10,12 +10,13 @@
   <link rel="stylesheet" href="../assets/formulaire.css">
   <link rel="stylesheet" href="../assets/sectionAdmin.css">
   <script src="../assets/script.js" defer></script>
+  <script src="../assets/validation.js" defer></script>
 </head>
 
 <body>
 
   <div class="header">
-    <a class = "btn1" href="connexion.php">Connexion</a>
-    <a class = "btn2" href="./includes/sectionAdmin.php">Admin</a>
-  </div>
 
+    <a class="btn1" href="connexion.php">Connexion</a>
+    <a class="btn2" href="./includes/sectionAdmin.php">Admin</a>
+  </div>
