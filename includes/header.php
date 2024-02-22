@@ -16,13 +16,7 @@
 <body>
 
   <div class="header">
-<<<<<<< HEAD
+
     <a class="btn1" href="connexion.php">Connexion</a>
     <a class="btn2" href="./includes/sectionAdmin.php">Admin</a>
   </div>
-=======
-    <a class = "btn1" href="connexion.php">Connexion</a>
-    <a class = "btn2" href="./includes/sectionAdmin.php">Admin</a>
-  </div>
-
->>>>>>> 414d84a05ac9e2a56c22e770c889bf8b027e9eee
