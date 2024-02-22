@@ -13,7 +13,7 @@ class Reservation {
     private $_enfant;
     private $_casqueAntiBruit;
     private $_luge;
-    private $_tarif;
+    //private $_tarif;
 
   /**
    * Création d'un nouvel utilisateur
@@ -23,7 +23,7 @@ class Reservation {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,int|string $id = "à créer",int $nombreResa, bool $tarifReduit, string $formule, string $emplacementTente, string $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif){
+  function __construct(string $nom, string $prenom,string $mail,int|string $id = "à créer",int $nombreResa, bool $tarifReduit, string $formule, string $emplacementTente, string $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge){
     $this->setId($id);
     $this->setNom($nom);
     $this->setPrenom($prenom);
@@ -36,7 +36,7 @@ class Reservation {
     $this->setEnfant($enfant);
     $this->setCasqueAntiBruit($casqueAntiBruit);
     $this->setLuge($luge);
-    $this->setTarif($tarif);
+    $this->setTarif();
   }
 
   public function getId(): int {
@@ -124,11 +124,9 @@ class Reservation {
     $this->_luge = $luge;
   }
 
-  public function getTarif(): string {
-    return $this->_tarif;
-  }
-  public function setTarif(string $tarif){
-    $this->_tarif = $tarif;
+
+  public function setTarif(){
+    echo ('5€ pas cher pas cher');
   }
   
   private function CreerNouvelId(){
