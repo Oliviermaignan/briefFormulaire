@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="../assets/sectionAdmin.css">
   <link rel="stylesheet" href="../assets/sectionRecap.css">
   <script src="../assets/script.js" defer></script>
+  <script src="../assets/bouton.js" defer></script>
   <script src="../assets/validation.js" defer></script>
 </head>
 

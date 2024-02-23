@@ -43,8 +43,9 @@
       <label for="pass2joursreduit">Pass 2 jours : 50€</label>
       <input type="checkbox" name="passSelectionTarifReduit" id="pass3joursreduit" value="pass3joursreduit">
       <label for="pass3joursreduit">Pass 3 jours : 65€</label>
+    </section>
 
-      <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
+    <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
       <p class="bouton" onclick="displayForm(2)">Suivant</p>
     </fieldset>
@@ -83,34 +84,34 @@
       <input type="checkbox" name="enfants" value="avecEnfant"><label for="enfantsOui" >Oui</label>
       <input type="checkbox" name="enfants" value="sansEnfant"><label for="enfantsNon" value="sansEnfant">Non</label>
 
-      <!-- Si oui, afficher : -->
-      <section>
-        <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
-        <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
-        <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
-        <p>*Dans la limite des stocks disponibles.</p>
-      </section>
+    <!-- Si oui, afficher : -->
+    <section>
+      <h4>Voulez-vous louer un casque antibruit pour enfants* (2€ / casque) ?</h4>
+      <label for="nombreCasquesEnfants">Nombre de casques souhaités :</label>
+      <input type="number" name="nombreCasquesEnfants" id="nombreCasquesEnfants">
+      <p>*Dans la limite des stocks disponibles.</p>
+    </section>
 
-      <h3>Profitez de descentes en luge d'été à tarifs avantageux ! (5€)</h3>
-      <label for="nombreLugesEte">Nombre de descentes en luge d'été :</label>
-      <input type="number" name="nombreLugesEte" id="nombreLugesEte">
+    <h3>Profitez de descentes en luge d'été à tarifs avantageux ! (5€)</h3>
+    <label for="nombreLugesEte">Nombre de descentes en luge d'été :</label>
+    <input type="number" name="nombreLugesEte" id="nombreLugesEte">
 
-      <p class="bouton" onclick="displayForm(3)">Suivant</p>
-    </fieldset>
-    
-    <fieldset id="coordonnees">
-      <legend>Coordonnées</legend>
-        <label for="nom">Nom :</label>
-        <input type="text" name="nom" id="nom" required>
-        <label for="prenom">Prénom :</label>
-        <input type="text" name="prenom" id="prenom" required>
-        <label for="email">Email :</label>
-        <input type="email" name="email" id="email" required>
-        <label for="telephone">Téléphone :</label>
-        <input type="text" name="telephone" id="telephone" required>
-        <label for="adressePostale">Adresse Postale :</label>
-        <input type="text" name="adressePostale" id="adressePostale" required>
+    <p class="bouton" onclick="displayForm(3)">Suivant</p>
+  </fieldset>
 
-        <input type="submit" name="soumission" class="bouton" value="Réserver">
-    </fieldset>
-  </form>
+  <fieldset id="coordonnees">
+    <legend>Coordonnées</legend>
+    <label for="nom">Nom :</label>
+    <input type="text" name="nom" id="nom" required>
+    <label for="prenom">Prénom :</label>
+    <input type="text" name="prenom" id="prenom" required>
+    <label for="email">Email :</label>
+    <input type="email" name="email" id="email" required>
+    <label for="telephone">Téléphone :</label>
+    <input type="text" name="telephone" id="telephone" required>
+    <label for="adressePostale">Adresse Postale :</label>
+    <input type="text" name="adressePostale" id="adressePostale" required>
+
+    <input type="submit" name="soumission" class="bouton" value="Réserver">
+  </fieldset>
+</form>

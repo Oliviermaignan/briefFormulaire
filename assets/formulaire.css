@@ -9,3 +9,9 @@ fieldset{
 .hidden{
     display: none;
 }
+
+#pass1jourDate,
+#pass2joursDate,
+#passTarifReduit {
+  display: none;
+}
