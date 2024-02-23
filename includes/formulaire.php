@@ -1,42 +1,43 @@
 <form action="../src/traitement.php" id="inscription" method="POST" onsubmit="return Validation()">
-<fieldset id="reservation">
-      <legend>Réservation</legend>
-      <h3>Nombre de réservation(s) :</h3>
-      <input type="number" name="nombrePlaces" id="NombrePlaces" required>
-      <h3>Réservation(s) en tarif réduit</h3>
-      <input type="checkbox" name="tarifReduit" id="tarifReduit">
-      <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
+  <fieldset id="reservation">
+    <legend>Réservation</legend>
+    <h3>Nombre de réservation(s) :</h3>
+    <input type="number" name="nombrePlaces" id="NombrePlaces" required>
+    <h3>Réservation(s) en tarif réduit</h3>
+    <input type="checkbox" name="tarifReduit" id="tarifReduit">
+    <label for="tarifReduit">Ma réservation sera en tarif réduit</label>
 
-      <h3>Choisissez votre formule :</h3>
-      <input type="checkbox" name="passSelection" id="pass1jour" value="pass1jour">
-      <label for="pass1jour">Pass 1 jour : 40€</label>
+    <h3>Choisissez votre formule :</h3>
+    <input type="checkbox" name="passSelection" id="pass1jour" value="pass1jour">
+    <label for="pass1jour">Pass 1 jour : 40€</label>
 
-      <!-- Si case cochée, afficher le choix du jour -->
-      <section id="pass1jourDate">
-        <input type="checkbox" name="pass1jour" id="choixJour1" value="choixJour1">
-        <label for="choixJour1">Pass pour la journée du 01/07</label>
-        <input type="checkbox" name="pass1jour" id="choixJour2" value="choixJour2">
-        <label for="choixJour2">Pass pour la journée du 02/07</label>
-        <input type="checkbox" name="pass1jour" id="choixJour3" value="choixJour3">
-        <label for="choixJour3">Pass pour la journée du 03/07</label>
-      </section>
+    <!-- Si case cochée, afficher le choix du jour -->
+    <section id="pass1jourDate">
+      <input type="checkbox" name="pass1jour" id="choixJour1" value="choixJour1">
+      <label for="choixJour1">Pass pour la journée du 01/07</label>
+      <input type="checkbox" name="pass1jour" id="choixJour2" value="choixJour2">
+      <label for="choixJour2">Pass pour la journée du 02/07</label>
+      <input type="checkbox" name="pass1jour" id="choixJour3" value="choixJour3">
+      <label for="choixJour3">Pass pour la journée du 03/07</label>
+    </section>
 
-      <input type="checkbox" name="passSelection" id="pass2jours" value="pass2jours">
-      <label for="pass2jours">Pass 2 jours : 70€</label>
+    <input type="checkbox" name="passSelection" id="pass2jours" value="pass2jours">
+    <label for="pass2jours">Pass 2 jours : 70€</label>
 
-      <!-- Si case cochée, afficher le choix des jours -->
-      <section id="pass2joursDate">
-        <input type="checkbox" name="pass2jours" id="choixJour12" value="choixJour12">
-        <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
-        <input type="checkbox" name="pass2jours" id="choixJour23" value="choixJour23">
-        <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
-      </section>
+    <!-- Si case cochée, afficher le choix des jours -->
+    <section id="pass2joursDate">
+      <input type="checkbox" name="pass2jours" id="choixJour12" value="choixJour12">
+      <label for="choixJour12">Pass pour deux journées du 01/07 au 02/07</label>
+      <input type="checkbox" name="pass2jours" id="choixJour23" value="choixJour23">
+      <label for="choixJour23">Pass pour deux journées du 02/07 au 03/07</label>
+    </section>
 
-      <input type="checkbox" name="passSelection" id="pass3jours" value="pass3jours">
-      <label for="pass3jours">Pass 3 jours : 100€</label>
+    <input type="checkbox" name="passSelection" id="pass3jours" value="pass3jours">
+    <label for="pass3jours">Pass 3 jours : 100€</label>
 
 
-      <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
+    <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
+    <section id="passTarifReduit">
       <input type="checkbox" name="passSelectionTarifReduit" id="pass1jourreduit" value="pass1jourreduit">
       <label for="pass1jourreduit">Pass 1 jour : 25€</label>
       <input type="checkbox" name="passSelectionTarifReduit" id="pass2joursreduit" value="pass2joursreduit">
@@ -47,15 +48,16 @@
 
     <!-- FACULTATIF : ajouter un pass groupe (5 adultes : 150€ / jour) uniquement pass 1 jour -->
 
-      <p class="bouton" onclick="displayForm(2)">Suivant</p>
-    </fieldset>
-    <fieldset id="options">
-      <legend>Options</legend>
-      <h3>Réserver un emplacement de tente : </h3>
+    <p class="bouton" onclick="displayForm(2)">Suivant</p>
+  </fieldset>
+  <fieldset id="options">
+    <legend>Options</legend>
+    <h3>Réserver un emplacement de tente : </h3>
 
-      <input type="checkbox" name="camping" id="camping">
-      <label for="camping">Reserver une ou plusieurs nuits de camping</label>
+    <input type="checkbox" name="camping" id="camping">
+    <label for="camping">Réserver une ou plusieurs nuits de camping</label>
 
+    <section id="nuitCamping">
       <input type="checkbox" id="tenteNuit1" name="nuitTente" value="tenteNuit1">
       <label for="tenteNuit1">Pour la nuit du 01/07 (5€)</label>
       <input type="checkbox" id="tenteNuit2" name="nuitTente" value="tenteNuit2">
@@ -64,13 +66,14 @@
       <label for="tenteNuit3">Pour la nuit du 03/07 (5€)</label>
       <input type="checkbox" id="tente3Nuits" name="nuitTente" value="tente3nuits">
       <label for="tente3Nuits">Pour les 3 nuits (12€)</label>
+    </section>
 
+    <h3>Réserver un emplacement de camion aménagé : </h3>
 
-      <h3>Réserver un emplacement de camion aménagé : </h3>
+    <input type="checkbox" name="camping" id="nuitVan">
+    <label for="nuitVan">Réserver une ou plusieurs nuits pour camion aménagé</label>
 
-      <input type="checkbox" name="camping" id="nuitVan">
-      <label for="nuitVan">Reserver une ou plusieurs nuits pour camion aménagé</label>
-
+    <section id="nuitCamion">
       <input type="checkbox" id="vanNuit1" name="vanNuit" value="vanNuit1">
       <label for="vanNuit1">Pour la nuit du 01/07 (5€)</label>
       <input type="checkbox" id="vanNuit2" name="vanNuit" value="vanNuit2">
@@ -79,10 +82,11 @@
       <label for="vanNuit3">Pour la nuit du 03/07 (5€)</label>
       <input type="checkbox" id="van3Nuits" name="vanNuit" value="van3Nuits">
       <label for="van3Nuits">Pour les 3 nuits (12€)</label>
+    </section>
 
-      <h3>Venez-vous avec des enfants ?</h3>
-      <input type="checkbox" name="enfants" value="avecEnfant"><label for="enfantsOui" >Oui</label>
-      <input type="checkbox" name="enfants" value="sansEnfant"><label for="enfantsNon" value="sansEnfant">Non</label>
+    <h3>Venez-vous avec des enfants ?</h3>
+    <input type="checkbox" name="enfants" value="avecEnfant"><label for="enfantsOui">Oui</label>
+    <input type="checkbox" name="enfants" value="sansEnfant"><label for="enfantsNon" value="sansEnfant">Non</label>
 
     <!-- Si oui, afficher : -->
     <section>
