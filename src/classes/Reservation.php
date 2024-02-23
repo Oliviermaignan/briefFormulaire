@@ -7,13 +7,13 @@ class Reservation {
     private $_mail;
     private $_nombreResa;
     private $_tarifReduit;
-    private $_formule;
+    private $_formulechoisie;
     private $_emplacementTente;
     private $_emplacementVan;
     private $_enfant;
     private $_casqueAntiBruit;
     private $_luge;
-    //private $_tarif;
+    private $_tarif;
 
   /**
    * Création d'un nouvel utilisateur
@@ -23,20 +23,20 @@ class Reservation {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,int|string $id = "à créer",int $nombreResa, bool $tarifReduit, string $formule, string $emplacementTente, string $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge){
+  function __construct(string $nom, string $prenom,string $mail,int|string $id = "à créer",int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif){
     $this->setId($id);
     $this->setNom($nom);
     $this->setPrenom($prenom);
     $this->setMail($mail);
     $this->setNombreResa($nombreResa);
     $this->setTarifReduit($tarifReduit);
-    $this->setFormule($formule);
+    $this->setformulechoisie($formulechoisie);
     $this->setEmplacementTente($emplacementTente);
     $this->setEmplacementVan($emplacementVan);
     $this->setEnfant($enfant);
     $this->setCasqueAntiBruit($casqueAntiBruit);
     $this->setLuge($luge);
-    $this->setTarif();
+    $this->setTarif($tarif);
   }
 
   public function getId(): int {
@@ -82,24 +82,24 @@ class Reservation {
     $this->_tarifReduit = $tarifReduit;
   }
 
-  public function getFormule(): string {
-    return $this->_formule;
+  public function getformulechoisie(): string {
+    return $this->_formulechoisie;
   }
-  public function setFormule(string $formule){
-    $this->_formule = $formule;
+  public function setformulechoisie(string $formulechoisie){
+    $this->_formulechoisie = $formulechoisie;
   }
 
-  public function getEmplacementTente(): string {
+  public function getEmplacementTente(): array {
     return $this->_emplacementTente;
   }
-  public function setEmplacementTente(string $emplacementTente){
+  public function setEmplacementTente(array $emplacementTente){
     $this->_emplacementTente = $emplacementTente;
   }
 
-  public function getEmplacementVan(): string {
+  public function getEmplacementVan(): array {
     return $this->_emplacementVan;
   }
-  public function setEmplacementVan(string $emplacementVan){
+  public function setEmplacementVan(array $emplacementVan){
     $this->_emplacementVan = $emplacementVan;
   }
 
@@ -124,10 +124,13 @@ class Reservation {
     $this->_luge = $luge;
   }
 
-
-  public function setTarif(){
-    echo ('5€ pas cher pas cher');
+  public function getTarif(): string {
+    return $this->_tarif;
   }
+  public function setTarif(string $tarif){
+    $this->_tarif = $tarif;
+  }
+
   
   private function CreerNouvelId(){
     $Database = new Database();
@@ -163,9 +166,9 @@ class Reservation {
       "mail" => $this->getMail(),
       "nombreResa" => $this->getNombreResa(),
       "tarifReduit" => $this->getTarifReduit(),
-      "formule" => $this->getFormule(),
-      "emplacementTente" => $this->getEmplacementTente(),
-      "emplacementVan" => $this->getEmplacementVan(),
+      "formulechoisie" => $this->getformulechoisie(),
+      "emplacementTente" => implode(',',$this->getEmplacementTente()),
+      "emplacementVan" => implode(',',$this->getEmplacementVan()),
       "enfant" => $this->getEnfant(),
       "casqueAntiBruit" => $this->getCasqueAntiBruit(),
       "luge" => $this->getLuge(),
