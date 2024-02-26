@@ -1,17 +1,19 @@
-fieldset{
-    position: relative;
-    margin: auto;
-    width: 50%;
-    border: 2px solid black;
-    border-radius: 20px;
+fieldset {
+  position: relative;
+  margin: auto;
+  width: 50%;
+  border: 2px solid black;
+  border-radius: 20px;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
+#passTarifReduit,
 #pass1jourDate,
 #pass2joursDate,
-#passTarifReduit {
+#nuitCamping,
+#nuitCamion {
   display: none;
 }

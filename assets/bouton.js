@@ -4,6 +4,9 @@ let pass1jour = document.querySelector("#pass1jour");
 let pass2jours = document.querySelector("#pass2jours");
 let pass3jours = document.querySelector("#pass3jours");
 
+let camping = document.querySelector("#camping");
+let nuitVan = document.querySelector("#nuitVan");
+
 tarifReduit.addEventListener("change", function () {
   let passTarifReduit = document.getElementById("passTarifReduit");
   if (this.checked) {
@@ -30,3 +33,21 @@ pass2jours.addEventListener("change", function () {
     pass2joursDate.style.display = "none";
   }
 });
+
+camping.addEventListener("change", function () {
+    let nuitCamping = document.getElementById("nuitCamping");
+    if (this.checked) {
+        nuitCamping.style.display = "block";
+    } else {
+        nuitCamping.style.display = "none";
+    }
+  });
+
+  nuitVan.addEventListener("change", function () {
+    let nuitCamion = document.getElementById("nuitCamion");
+    if (this.checked) {
+        nuitCamion.style.display = "block";
+    } else {
+        nuitCamion.style.display = "none";
+    }
+  });
