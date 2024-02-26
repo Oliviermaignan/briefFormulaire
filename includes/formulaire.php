@@ -37,6 +37,7 @@
 
 
       <!-- tarifs réduits : à n'afficher que si tarif réduit est sélectionné -->
+      <section id="passTarifReduit">
       <input type="checkbox" name="passSelectionTarifReduit" id="pass1jourreduit" value="pass1jourreduit">
       <label for="pass1jourreduit">Pass 1 jour : 25€</label>
       <input type="checkbox" name="passSelectionTarifReduit" id="pass2joursreduit" value="pass2joursreduit">

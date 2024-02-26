@@ -1,7 +1,7 @@
 <?php 
 
 include '../src/classes/Reservation.php';
-require './classes/DatabaseReservation.php';
+include './classes/DatabaseReservation.php';
 
 var_dump($_POST);
 
@@ -152,7 +152,7 @@ if (
             } else{
                 $reservationTente[] = 'pas de reservation de tente';
             }
-            if (isset($_POST['nuitTente'])){
+            if (isset($_POST['vanNuit'])){
                 switch ($_POST['vanNuit']) {
                     case 'vanNuit1':
                         $reservationVan[] = 'van 1ere nuit';
@@ -175,17 +175,21 @@ if (
             }
 
         }
-
-        $enfant = htmlspecialchars($_POST['enfants']);
-        switch ($enfant) {
-            case 'sansEnfant':
-                $enfant = 'vous venez sans enfant';
-                break;
-            
-            default:
-                $enfant = 'vous venez avec un ou plusieurs enfants';
-                break;
+        if (isset($enfant)){
+            $enfant = htmlspecialchars($_POST['enfants']);
+            switch ($enfant) {
+                case 'sansEnfant':
+                    $enfant = 'vous venez sans enfant';
+                    break;
+                
+                default:
+                    $enfant = 'vous venez avec un ou plusieurs enfants';
+                    break;
+            }
+        } else {
+            $enfant = 'vous venez sans enfant';
         }
+
         $nouvelleReservation = new Reservation(
             $nom,
             $prenom,
@@ -203,10 +207,15 @@ if (
         );
 
 
-        var_dump($nouvelleReservation);
-
-
 
     $retour = $DatabaseReservation->saveReservation($nouvelleReservation);
+
+    if ($retour) {
+        header('Location:../includes/sectionRecap.php');
+        die;
+      } else {
+        echo 'erreur ecriture base de donnée';
+      }
 }
+
 

@@ -3,8 +3,6 @@
 include '../includes/header.php';
 require '../src/traitement.php';
 
-var_dump($_POST);
-
 ?>
 
 <div class="admin-container">
