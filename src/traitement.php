@@ -135,15 +135,19 @@ if (
                 switch ($_POST['nuitTente']) {
                     case 'tentenuit1':
                         $reservationTente[] = 'tente 1ere nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
                         break; 
                     case 'tentenuit2':
                         $reservationTente[] = 'tente 2eme nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
                         break;
                     case 'tentenuit3':
                         $reservationTente[] = 'tente 3eme nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
                         break;
                     case 'tente3nuits':
                         $reservationTente[] = '3 nuits en tente';
+                        $tarif = $tarif + (int) 12 * $nombrePlaces;
                         break;
                     default:
                         $reservationTente[] = 'pas de reservation de tente';
@@ -156,15 +160,19 @@ if (
                 switch ($_POST['vanNuit']) {
                     case 'vanNuit1':
                         $reservationVan[] = 'van 1ere nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
                         break; 
                     case 'vanNuit2':
                         $reservationVan[] = 'van 2eme nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
                         break;
                     case 'vanNuit3':
                         $reservationVan[] = 'van 3eme nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
                         break;
                     case 'van3Nuits':
                         $reservationVan[] = '3 nuits en van';
+                        $tarif = $tarif + (int) 12 * $nombrePlaces;
                         break;
                     default:
                         $reservationVan[] = 'pas de reservation de van';
