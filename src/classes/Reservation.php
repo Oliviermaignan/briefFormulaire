@@ -1,4 +1,5 @@
 <?php
+require_once './classes/ReservationDatabase.php';
 
 class Reservation {
     private $_id;
@@ -23,7 +24,7 @@ class Reservation {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif){
+  function __construct(string $nom, string $prenom,string $mail,int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif, int|string $id = "à créer"){
     $this->setNom($nom);
     $this->setPrenom($prenom);
     $this->setMail($mail);
@@ -36,14 +37,19 @@ class Reservation {
     $this->setCasqueAntiBruit($casqueAntiBruit);
     $this->setLuge($luge);
     $this->setTarif($tarif);
-    $this->setId();
+    $this->setId($id);
   }
 
   public function getId(): int {
     return $this->_id;
   }
-  public function setId(){
+  public function setId(int|string $id){
+    if (is_string($id) && $id === "à créer") {
       $this->_id = $this->CreerNouvelId();
+    }else {
+      $this->_id = $id;
+    }
+
   }
   public function getNom(): string {
     return $this->_nom;
@@ -129,7 +135,7 @@ class Reservation {
   
   private function CreerNouvelId(){
     $ReservationDatabase = new ReservationDatabase();
-    $utilisateurs = $ReservationDatabase->getAllUtilisateurs();
+    $utilisateurs = $ReservationDatabase->getAllReservations();
 
     // On crée un tableau dans lequel on stockera tous les ids existants.
     $IDs = [];

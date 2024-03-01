@@ -1,11 +1,13 @@
 <?php
 
-include '../src/classes/Reservation.php';
-include './classes/DatabaseReservation.php';
+require_once '../src/classes/Reservation.php';
+require_once './classes/ReservationDatabase.php';
 
 var_dump($_POST);
 
-$DatabaseReservation = new reservationDatabase();
+$reservationDatabase = new ReservationDatabase();
+var_dump($reservationDatabase);
+var_dump($reservationDatabase->getAllReservations());
 // define variables and set to empty values
 $nomErr = $prenomErr = $email = $tel = $adresse = "";
 $nom = $prenom = $email = $tel = $adresse = "";
@@ -101,7 +103,7 @@ if (
             }
         }
         if ($_POST['passSelection'] === 'pass3jours') {
-            $formulechoisie[] = 'Pass 3 jours';
+            $formulechoisie = 'Pass 3 jours';
             $tarif = (int) 100 * $nombrePlaces;
         }
     }
@@ -209,7 +211,6 @@ if (
         $nom,
         $prenom,
         $email,
-        1,
         $nombrePlaces,
         $tarifReduit,
         $formulechoisie,
@@ -221,9 +222,7 @@ if (
         $tarif
     );
 
-
-
-    $retour = $DatabaseReservation->saveReservation($nouvelleReservation);
+    $retour = $reservationDatabase->saveReservation($nouvelleReservation);
 
     if ($retour) {
         header('Location:../includes/sectionRecap.php');
