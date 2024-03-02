@@ -54,8 +54,8 @@
     <legend>Options</legend>
     <h3>Réserver un emplacement de tente : </h3>
 
-    <input type="checkbox" name="camping" id="camping">
-    <label for="camping">Réserver une ou plusieurs nuits de camping</label>
+    <input type="checkbox" name="campingTente" id="camping">
+    <label for="campingTente">Réserver une ou plusieurs nuits de camping</label>
 
     <section id="nuitCamping">
       <input type="checkbox" id="tenteNuit1" name="nuitTente" value="tenteNuit1">
@@ -70,8 +70,8 @@
 
     <h3>Réserver un emplacement de camion aménagé : </h3>
 
-    <input type="checkbox" name="camping" id="nuitVan">
-    <label for="nuitVan">Réserver une ou plusieurs nuits pour camion aménagé</label>
+    <input type="checkbox" name="campingVan" id="nuitVan">
+    <label for="campingVan">Réserver une ou plusieurs nuits pour camion aménagé</label>
 
     <section id="nuitCamion">
       <input type="checkbox" id="vanNuit1" name="vanNuit" value="vanNuit1">

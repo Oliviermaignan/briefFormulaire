@@ -6,8 +6,8 @@ require_once './classes/ReservationDatabase.php';
 var_dump($_POST);
 
 $reservationDatabase = new ReservationDatabase();
-var_dump($reservationDatabase);
-var_dump($reservationDatabase->getAllReservations());
+// var_dump($reservationDatabase);
+// var_dump($reservationDatabase->getAllReservations());
 // define variables and set to empty values
 $nomErr = $prenomErr = $email = $tel = $adresse = "";
 $nom = $prenom = $email = $tel = $adresse = "";
@@ -40,7 +40,6 @@ if (
     // Valider le numéro de téléphone avec l'expression régulière personnalisée
     if (filter_var((int)$_POST['telephone'], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => $pattern)))) {
         $tel = filter_var($_POST['telephone'], FILTER_SANITIZE_NUMBER_INT);
-        echo $tel . '<br>';
     } else {
         echo 'erreur tel';
     }
@@ -132,7 +131,7 @@ if (
     $reservationTente = [];
     $reservationVan = [];
     //gestion du camping
-    if ($_POST['camping'] === 'on') {
+    if ($_POST['campingTente'] === 'on') {
         if (isset($_POST['nuitTente'])) {
             switch ($_POST['nuitTente']) {
                 case 'tentenuit1':
@@ -154,36 +153,38 @@ if (
                 default:
                     $reservationTente[] = 'pas de reservation de tente';
                     break;
+                }
             }
         } else {
             $reservationTente[] = 'pas de reservation de tente';
         }
-        if (isset($_POST['vanNuit'])) {
-            switch ($_POST['vanNuit']) {
-                case 'vanNuit1':
-                    $reservationVan[] = 'van 1ere nuit';
-                    $tarif = $tarif + (int) 5 * $nombrePlaces;
-                    break;
-                case 'vanNuit2':
-                    $reservationVan[] = 'van 2eme nuit';
-                    $tarif = $tarif + (int) 5 * $nombrePlaces;
-                    break;
-                case 'vanNuit3':
-                    $reservationVan[] = 'van 3eme nuit';
-                    $tarif = $tarif + (int) 5 * $nombrePlaces;
-                    break;
-                case 'van3Nuits':
-                    $reservationVan[] = '3 nuits en van';
-                    $tarif = $tarif + (int) 12 * $nombrePlaces;
-                    break;
-                default:
-                    $reservationVan[] = 'pas de reservation de van';
-                    break;
+        if ($_POST['campingVan'] === 'on') {
+            if (isset($_POST['vanNuit'])) {
+                switch ($_POST['vanNuit']) {
+                    case 'vanNuit1':
+                        $reservationVan[] = 'van 1ere nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
+                        break;
+                    case 'vanNuit2':
+                        $reservationVan[] = 'van 2eme nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
+                        break;
+                    case 'vanNuit3':
+                        $reservationVan[] = 'van 3eme nuit';
+                        $tarif = $tarif + (int) 5 * $nombrePlaces;
+                        break;
+                    case 'van3Nuits':
+                        $reservationVan[] = '3 nuits en van';
+                        $tarif = $tarif + (int) 12 * $nombrePlaces;
+                        break;
+                    default:
+                        $reservationVan[] = 'pas de reservation de van';
+                        break;
+                }
             }
-        } else {
-            $reservationVan[] = 'pas de reservation de tente';
+        }  else {
+            $reservationVan[] = 'pas de van aménagé';
         }
-    }
 
     // Vérification si le champ 'nombreCasquesEnfants' est soumis dans le formulaire
     if (isset($_POST['nombreCasquesEnfants'])) {
@@ -222,10 +223,15 @@ if (
         $tarif
     );
 
+    //je recupe l'id
+    $id_reservation = $nouvelleReservation->getId();
+
+    // Rediriger l'utilisateur vers recap.php en passant l'ID de la réservation comme paramètre GET
+
     $retour = $reservationDatabase->saveReservation($nouvelleReservation);
 
     if ($retour) {
-        header('Location:../includes/sectionRecap.php');
+        header("Location: ../includes/sectionRecap.php?id_reservation=$id_reservation");
         die;
     } else {
         echo 'erreur ecriture base de donnée';
