@@ -1,6 +1,5 @@
 <?php 
 
-include '../includes/header.php';
 include dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'ReservationDatabase.php';
 include '../src/classes/Reservation.php';
 $id_reservation = (string) $_GET['id_reservation'];
