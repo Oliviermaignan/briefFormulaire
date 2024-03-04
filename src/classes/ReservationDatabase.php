@@ -13,11 +13,11 @@ final class ReservationDatabase{
         $reservations = [];
 
         while (($row = fgetcsv($connexion, 1000, ",")) !== FALSE) {
-            $column7 = is_array($row[7]) ? $row[7] : explode(',', $row[7]);
-            $column8 = is_array($row[8]) ? $row[8] : explode(',', $row[8]);
+            $column9 = is_array($row[9]) ? $row[9] : explode(',', $row[9]);
+            $column10 = is_array($row[10]) ? $row[10] : explode(',', $row[10]);
 
 
-            $reservations[] = new Reservation($row[1], $row[2], (int) $row[3], $row[4], $row[5], $row[6], $column7, $column8, (int)$row[9], $row[10], $row[11], $row[12], $row[0]);
+            $reservations[] = new Reservation($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], (int)$row[6], $row[7], $row[8], $column9, $column10, $row[11], (int)$row[12], (int)$row[13], (int)$row[14]);
         }
 
         fclose($connexion);

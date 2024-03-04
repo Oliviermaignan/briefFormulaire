@@ -212,6 +212,8 @@ if (
         $nom,
         $prenom,
         $email,
+        $tel, 
+        $adresse,
         $nombrePlaces,
         $tarifReduit,
         $formulechoisie,
