@@ -3,20 +3,22 @@
 include '../includes/header.php';
 require '../src/classes/ReservationDatabase.php';
 
-$lignes = file(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'reservation.csv');
+// $lignes = file(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'reservation.csv');
 
 
+$DB = new ReservationDatabase();
+$reservations = $DB->getAllReservations();
 
-// Créer un tableau pour stocker les données des réservations
-$reservations = [];
+// // Créer un tableau pour stocker les données des réservations
+// $reservations = [];
 
-// Parcourir chaque ligne du fichier CSV
-foreach ($lignes as $ligne) {
-    // Diviser la ligne en un tableau de valeurs CSV
-    $data = str_getcsv($ligne);
-    // Ajouter les données de la réservation au tableau des réservations
-    $reservations[] = $data;
-}
+// // Parcourir chaque ligne du fichier CSV
+// foreach ($lignes as $ligne) {
+//     // Diviser la ligne en un tableau de valeurs CSV
+//     $data = str_getcsv($ligne);
+//     // Ajouter les données de la réservation au tableau des réservations
+//     $reservations[] = $data;
+// }
 
 ?>
 
@@ -45,20 +47,20 @@ foreach ($lignes as $ligne) {
             <tr>
                 <!-- Afficher les données de chaque réservation -->
                 <td><?= $reservation->getId()?></td>
-                <td><?= $reservation[1] ?></td>
-                <td><?= $reservation[2] ?></td>
-                <td><?= $reservation[3] ?></td>
-                <td><?= $reservation[4] ?></td>
-                <td><?= $reservation[5] ?></td>
-                <td><?= $reservation[6] ?></td>
-                <td><?= $reservation[7] ?></td>
-                <td><?= $reservation[8] ?></td>
-                <td><?= $reservation[9] ?></td>
-                <td><?= $reservation[10] ?></td>
-                <td><?= $reservation[11] ?></td>
-                <td><?= $reservation[12] ?></td>
-                <td><?= $reservation[13] ?></td>
-                <td><?= $reservation[14] ?></td>
+                <td><?= $reservation->getNom() ?></td>
+                <td><?= $reservation->getPrenom()?></td>
+                <td><?= $reservation->getMail()?></td>
+                <td><?= $reservation->getTel()?></td>
+                <td><?= $reservation->getAdresse() ?></td>
+                <td><?= $reservation->getNombreResa() ?></td>
+                <td><?= $reservation->getTarifReduit()?></td>
+                <td><?= $reservation->getformulechoisie()?></td>
+                <td><?= $reservation->getEmplacementTente()?></td>
+                <td><?= $reservation->getEmplacementVan()?></td>
+                <td><?= $reservation->getEnfant() ?></td>
+                <td><?= $reservation->getCasqueAntiBruit() ?></td>
+                <td><?= $reservation->getLuge()?></td>
+                <td><?= $reservation->getTarif()?></td>
             </tr>
         <?php endforeach; ?>
     </tbody>
