@@ -2,12 +2,13 @@
 
 include '../includes/header.php';
 require '../src/classes/ReservationDatabase.php';
+require '../src/classes/Reservation.php';
 
 // $lignes = file(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'csv' . DIRECTORY_SEPARATOR . 'reservation.csv');
 
 
 $DB = new ReservationDatabase();
-$reservations = $DB->getAllReservations();
+$utilisateurs = $DB->getAllReservations();
 
 // // Créer un tableau pour stocker les données des réservations
 // $reservations = [];
@@ -22,46 +23,29 @@ $reservations = $DB->getAllReservations();
 
 ?>
 
-<table border="solid">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Prénom</th>
-            <th>Email</th>
-            <th>Tel</th>
-            <th>AdressePost</th>
-            <th>Nombre Resa</th>
-            <th>Tarif Reduit</th>
-            <th>Formule Choisie</th>
-            <th>Emplacement Tente</th>
-            <th>Emplacement Van</th>
-            <th>Enfant</th>
-            <th>Casque Anti Bruit</th>
-            <th>Luge</th>
-            <th>Tarif</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($reservations as $reservation) : ?>
-            <tr>
-                <!-- Afficher les données de chaque réservation -->
-                <td><?= $reservation->getId()?></td>
-                <td><?= $reservation->getNom() ?></td>
-                <td><?= $reservation->getPrenom()?></td>
-                <td><?= $reservation->getMail()?></td>
-                <td><?= $reservation->getTel()?></td>
-                <td><?= $reservation->getAdresse() ?></td>
-                <td><?= $reservation->getNombreResa() ?></td>
-                <td><?= $reservation->getTarifReduit()?></td>
-                <td><?= $reservation->getformulechoisie()?></td>
-                <td><?= $reservation->getEmplacementTente()?></td>
-                <td><?= $reservation->getEmplacementVan()?></td>
-                <td><?= $reservation->getEnfant() ?></td>
-                <td><?= $reservation->getCasqueAntiBruit() ?></td>
-                <td><?= $reservation->getLuge()?></td>
-                <td><?= $reservation->getTarif()?></td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+
+
+<?php 
+foreach ($utilisateurs as $utilisateur) { 
+        ?>
+        <ul>
+            <li>id: <?= $utilisateur->getId() ?></li>
+            <li>nom :<?= $utilisateur->getNom() ?></li>
+            <li>prenom :<?= $utilisateur->getPrenom() ?></li>
+            <li>mail: <?= $utilisateur->getMail() ?></li>
+            <li>tel: <?= $utilisateur->getTel() ?></li>
+            <li>adresse: <?= $utilisateur->getAdresse() ?></li>
+            <li>vous avez reservez <?= $utilisateur->getNombreResa() ?> place(s)</li>
+            <li>vous avez un tarif reduit:<?= $utilisateur->getTarifReduit() ?></li>
+            <li>vous avez choisi le:<?= $utilisateur->getFormuleChoisie() ?></li>
+            <li><?= implode(",",$utilisateur->getEmplacementTente()) ?></li>
+            <li><?= implode(",",$utilisateur->getEmplacementVan()) ?></li>
+            <li>remarque :<?= $utilisateur->getEnfant() ?></li>
+            <li>vous voulez <?= $utilisateur->getCasqueAntiBruit() ?> casque anti-bruit</li>
+            <li>vous voulez <?= $utilisateur->getLuge() ?> déscente de luge</li>
+            <li>Vous nous devez<?= $utilisateur->getTarif() ?></li>
+    </ul>
+        <?php 
+    }
+
+
