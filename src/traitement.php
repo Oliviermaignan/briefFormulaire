@@ -131,7 +131,7 @@ if (
     $reservationTente = [];
     $reservationVan = [];
     //gestion du camping
-    if ($_POST['campingTente'] === 'on') {
+    if (isset($_POST['campingTente']) && $_POST['campingTente'] === 'on') {
         if (isset($_POST['nuitTente'])) {
             switch ($_POST['nuitTente']) {
                 case 'tentenuit1':
@@ -158,7 +158,7 @@ if (
         } else {
             $reservationTente[] = 'pas de reservation de tente';
         }
-        if ($_POST['campingVan'] === 'on') {
+        if (isset($_POST['campingVan']) && $_POST['campingVan'] === 'on') {
             if (isset($_POST['vanNuit'])) {
                 switch ($_POST['vanNuit']) {
                     case 'vanNuit1':
@@ -207,11 +207,13 @@ if (
             $enfant = 'vous venez sans enfant';
         }
     }
-
+    var_dump($formulechoisie);
     $nouvelleReservation = new Reservation(
         $nom,
         $prenom,
         $email,
+        $tel, 
+        $adresse,
         $nombrePlaces,
         $tarifReduit,
         $formulechoisie,

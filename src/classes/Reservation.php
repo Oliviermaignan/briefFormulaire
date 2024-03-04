@@ -1,20 +1,24 @@
 <?php
 require_once './classes/ReservationDatabase.php';
 
-class Reservation {
-    private $_id;
-    private $_nom;
-    private $_prenom;
-    private $_mail;
-    private $_nombreResa;
-    private $_tarifReduit;
-    private $_formulechoisie;
-    private $_emplacementTente;
-    private $_emplacementVan;
-    private $_enfant;
-    private $_casqueAntiBruit;
-    private $_luge;
-    private $_tarif;
+class Reservation
+{
+  private $_id;
+  private $_nom;
+  private $_prenom;
+  private $_mail;
+  private $_tel;
+  private $_adresse;
+  private $_nombreResa;
+  private $_tarifReduit;
+  private $_formulechoisie;
+  private $_emplacementTente;
+  private $_emplacementVan;
+  private $_enfant;
+  private $_casqueAntiBruit;
+  private $_luge;
+  private $_tarif;
+
 
   /**
    * Création d'un nouvel utilisateur
@@ -24,10 +28,14 @@ class Reservation {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(int|string $id = "à créer", string $nom, string $prenom,string $mail, string $tel, string $adresse, int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif){
+  function __construct(string $nom, string $prenom, string $mail, string $tel, string $adresse, int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif, int|string $id = "à créer")
+  {
+    $this->setId($id);
     $this->setNom($nom);
     $this->setPrenom($prenom);
     $this->setMail($mail);
+    $this->setTel($tel);
+    $this->setAdresse($adresse);
     $this->setNombreResa($nombreResa);
     $this->setTarifReduit($tarifReduit);
     $this->setformulechoisie($formulechoisie);
@@ -37,110 +45,155 @@ class Reservation {
     $this->setCasqueAntiBruit($casqueAntiBruit);
     $this->setLuge($luge);
     $this->setTarif($tarif);
-    $this->setId($id);
+
   }
 
-  public function getId(): int {
+  public function getId(): int
+  {
     return $this->_id;
   }
-  public function setId(int|string $id){
+  public function setId(int|string $id)
+  {
     if (is_string($id) && $id === "à créer") {
       $this->_id = $this->CreerNouvelId();
-    }else {
+    } else {
       $this->_id = $id;
     }
-
   }
-  public function getNom(): string {
+  public function getNom(): string
+  {
     return $this->_nom;
   }
-  public function setNom(string $nom){
+  public function setNom(string $nom)
+  {
     $this->_nom = $nom;
   }
-  public function getPrenom(): string {
+  public function getPrenom(): string
+  {
     return $this->_prenom;
   }
-  public function setPrenom(string $prenom){
+  public function setPrenom(string $prenom)
+  {
     $this->_prenom = $prenom;
   }
-  public function getMail(): string {
+  public function getMail(): string
+  {
     return $this->_mail;
   }
-  public function setMail(string $mail){
+  public function setMail(string $mail)
+  {
     $this->_mail = $mail;
   }
-  public function getNombreResa(): int {
+
+  public function getTel(): string
+  {
+    return $this->_tel;
+  }
+  public function setTel(string $tel)
+  {
+    $this->_tel = $tel;
+  }
+
+  public function getAdresse(): string
+  {
+    return $this->_adresse;
+  }
+  public function setAdresse(string $adresse)
+  {
+    $this->_adresse = $adresse;
+  }
+
+  public function getNombreResa(): int
+  {
     return $this->_nombreResa;
   }
-  public function setNombreResa(int $nombreResa){
+  public function setNombreResa(int $nombreResa)
+  {
     $this->_nombreResa = $nombreResa;
   }
 
-  public function getTarifReduit(): bool {
+  public function getTarifReduit(): bool
+  {
     return $this->_tarifReduit;
   }
-  public function setTarifReduit(bool $tarifReduit){
+  public function setTarifReduit(bool $tarifReduit)
+  {
     $this->_tarifReduit = $tarifReduit;
   }
 
-  public function getformulechoisie(): string {
+  public function getformulechoisie(): string
+  {
     return $this->_formulechoisie;
   }
-  public function setformulechoisie(string $formulechoisie){
+  public function setformulechoisie(string $formulechoisie)
+  {
     $this->_formulechoisie = $formulechoisie;
   }
 
-  public function getEmplacementTente(): array {
+  public function getEmplacementTente(): array
+  {
     return $this->_emplacementTente;
   }
-  public function setEmplacementTente(array $emplacementTente){
+  public function setEmplacementTente(array $emplacementTente)
+  {
     $this->_emplacementTente = $emplacementTente;
   }
 
-  public function getEmplacementVan(): array {
+  public function getEmplacementVan(): array
+  {
     return $this->_emplacementVan;
   }
-  public function setEmplacementVan(array $emplacementVan){
+  public function setEmplacementVan(array $emplacementVan)
+  {
     $this->_emplacementVan = $emplacementVan;
   }
 
-  public function getEnfant(): string {
+  public function getEnfant(): string
+  {
     return $this->_enfant;
   }
-  public function setEnfant(string $enfant){
+  public function setEnfant(string $enfant)
+  {
     $this->_enfant = $enfant;
   }
 
-  public function getCasqueAntiBruit(): string {
+  public function getCasqueAntiBruit(): string
+  {
     return $this->_casqueAntiBruit;
   }
-  public function setCasqueAntiBruit(string $casqueAntiBruit){
+  public function setCasqueAntiBruit(string $casqueAntiBruit)
+  {
     $this->_casqueAntiBruit = $casqueAntiBruit;
   }
 
-  public function getLuge(): string {
+  public function getLuge(): string
+  {
     return $this->_luge;
   }
-  public function setLuge(string $luge){
+  public function setLuge(string $luge)
+  {
     $this->_luge = $luge;
   }
 
-  public function getTarif(): string {
+  public function getTarif(): string
+  {
     return $this->_tarif;
   }
-  public function setTarif(string $tarif){
+  public function setTarif(string $tarif)
+  {
     $this->_tarif = $tarif;
   }
 
-  
-  private function CreerNouvelId(){
+
+  private function CreerNouvelId()
+  {
     $ReservationDatabase = new ReservationDatabase();
     $utilisateurs = $ReservationDatabase->getAllReservations();
 
     // On crée un tableau dans lequel on stockera tous les ids existants.
     $IDs = [];
 
-    foreach($utilisateurs as $utilisateur){
+    foreach ($utilisateurs as $utilisateur) {
       $IDs[] = $utilisateur->getId();
     }
 
@@ -149,7 +202,7 @@ class Reservation {
     $unique = false;
     while ($unique === false) {
       if (in_array($i, $IDs)) {
-        $i ++;
+        $i++;
       } else {
         $unique = true;
       }
@@ -159,17 +212,20 @@ class Reservation {
 
 
 
-  public function getObjectToArray(): array {
+  public function getObjectToArray(): array
+  {
     return [
       "id" => $this->getId(),
       "nom" => $this->getNom(),
       "prenom" => $this->getPrenom(),
       "mail" => $this->getMail(),
+      "tel" => $this->getTel(),
+      "adresse" => $this->getAdresse(),
       "nombreResa" => $this->getNombreResa(),
       "tarifReduit" => $this->getTarifReduit(),
       "formulechoisie" => $this->getformulechoisie(),
-      "emplacementTente" => implode(',',$this->getEmplacementTente()),
-      "emplacementVan" => implode(',',$this->getEmplacementVan()),
+      "emplacementTente" => implode(',', $this->getEmplacementTente()),
+      "emplacementVan" => implode(',', $this->getEmplacementVan()),
       "enfant" => $this->getEnfant(),
       "casqueAntiBruit" => $this->getCasqueAntiBruit(),
       "luge" => $this->getLuge(),
