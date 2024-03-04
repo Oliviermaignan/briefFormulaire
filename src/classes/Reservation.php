@@ -24,7 +24,7 @@ class Reservation {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif, int|string $id = "à créer"){
+  function __construct(int|string $id = "à créer", string $nom, string $prenom,string $mail, string $tel, string $adresse, int $nombreResa, bool $tarifReduit, string $formulechoisie, array $emplacementTente, array $emplacementVan, string $enfant, int $casqueAntiBruit, int $luge, int $tarif){
     $this->setNom($nom);
     $this->setPrenom($prenom);
     $this->setMail($mail);

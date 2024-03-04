@@ -16,7 +16,6 @@ final class ReservationDatabase{
             $column7 = is_array($row[7]) ? $row[7] : explode(',', $row[7]);
             $column8 = is_array($row[8]) ? $row[8] : explode(',', $row[8]);
 
-
             $reservations[] = new Reservation($row[1], $row[2], (int) $row[3], $row[4], $row[5], $row[6], $column7, $column8, (int)$row[9], $row[10], $row[11], $row[12], $row[0]);
         }
 
